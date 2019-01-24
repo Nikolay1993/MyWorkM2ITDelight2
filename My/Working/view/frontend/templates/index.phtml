@@ -1,0 +1,15 @@
+<h2>Welcome</h2>
+<?php
+
+//$productCollection = $block->getProductCollection();
+//foreach ($productCollection as $product) {
+//print_r($product->getData());
+//echo "<br>";
+//}
+
+$myProductCollection = $block->getProductCollection();
+foreach ($myProductCollection as $product) {
+    $url = $block->getUrl('test/hello/hello', ['_query' => ['buy' => $product->getId()]]);
+    $text = __('Hello world %1, %2', $url, $product->getId());
+    echo  'Nema Product: ' . $product->getName() . '<br> ' . 'Price: '. $product->getPrice() . '$' .'<br>'. "<button><a href=\"" . $url . "\">Купить товар</a></button>" .'<br>'.'<br>';
+}
