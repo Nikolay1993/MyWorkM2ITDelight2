@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="MyLayout_Test::test.css"/>
+        <link src="MyLayout_Test::test.js"/>
+    </head>
+    <referenceBlock name="content">
+        <block class="MyLayout\Test\Block\Custom" name="mylayout_custom_custom" template="MyLayout_Test::custom.phtml" />
+    </referenceBlock>
+</page>

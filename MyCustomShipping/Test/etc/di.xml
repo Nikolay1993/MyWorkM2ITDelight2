@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+
+    <preference for="MyCustomShipping\Test\Api\CityRepositoryInterface"
+                                    type="MyCustomShipping\Test\Model\CityRepository" />
+    <preference for="MyCustomShipping\Test\Api\Data\CityInterface"
+                            type="MyCustomShipping\Test\Model\City" />
+    <preference for="MyCustomShipping\Test\Api\Data\CitySearchResultsInterface"
+                            type="Magento\Framework\Api\SearchResults"/>
+    <preference for="MyCustomShipping\Test\Api\WarehouseRepositoryInterface"
+                            type="MyCustomShipping\Test\Model\WarehouseRepository" />
+    <preference for="MyCustomShipping\Test\Api\Data\WarehouseInterface"
+                            type="MyCustomShipping\Test\Model\Warehouse" />
+    <preference for="MyCustomShipping\Test\Data\WarehouseSearchResultsInterface"
+                            type="Magento\Framework\Api\SearchResults"/>
+
+    <!--<virtualType name="CityGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">-->
+        <!--<arguments>-->
+            <!--<argument name="collection" xsi:type="object" shared="false">MyCustomShipping\Test\Model\ResourceModel\City\Collection</argument>-->
+        <!--</arguments>-->
+    <!--</virtualType>-->
+
+    <!--<virtualType name="warehouseGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">-->
+        <!--<arguments>-->
+            <!--<argument name="collection" xsi:type="object" shared="false">MyCustomShipping\Test\Model\ResourceModel\Warehouse\Collection</argument>-->
+
+        <!--</arguments>-->
+    <!--</virtualType>-->
+
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="city_listing_data_source" xsi:type="string">MyCustomShipping\Test\Model\ResourceModel\City\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="warehouse_listing_data_source" xsi:type="string">MyCustomShipping\Test\Model\ResourceModel\Warehouse\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="inpost-address" type="MyCustomShipping\Test\Model\Quote\AddressPlugin" sortOrder="1" disabled="false"/>
+    </type>
+
+
+</config>

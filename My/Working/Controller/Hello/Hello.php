@@ -39,11 +39,13 @@ class Hello extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
+
+
         $id = $this->getRequest()->getParam('buy');
         if (isset($id)) {
             $productModel = $this->productModel->create()->load($id);
-            $priceProduct = $productModel->getPrice();
         }
+        $priceProduct = $productModel->getPrice();
 
         if ($priceProduct >= 100) {
             $this->messageManager->addSuccessMessage(__('Вы получили бесплатную достваку'));

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MyCustomShipping::test" title="MyCustomShipping" module="MyCustomShipping_Test" sortOrder="100" resource="MyCustomShipping_Test::test"/>
+        <add id="MyCustomShipping_Test::city_list" title="Нова почта города" module="MyCustomShipping_Test" sortOrder="0" action="mycustomshipping/city/index" parent="MyCustomShipping::test" resource="MyCustomShipping_Test::city"/>
+        <add id="MyCustomShipping_Test::warehouse_list" title="Новая почта склады" module="MyCustomShipping_Test" sortOrder="0" action="mycustomshipping/warehouse/index" parent="MyCustomShipping::test" resource="MyCustomShipping_Test::warehouse"/>
+    </menu>
+</config>
